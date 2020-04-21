@@ -7,11 +7,11 @@ const
     , router = express.Router()
     , azureStorage = require('azure-storage')
     , blobService = azureStorage.createBlobService()
-    , containerName = 'thumbnails'
+    , containerName = 'image'
     , config = require('../config')
 ;
 
-router.get('/', (req, res, next) => {
+router.get('/thumbnail/byname/:name', (req, res, next) => {
 
   blobService.listBlobsSegmented(containerName, null, (err, data) => {
 
@@ -39,11 +39,10 @@ router.get('/', (req, res, next) => {
 
       if (data.entries.length) {
         viewData.thumbnails = data.entries;
-      }
+      } 
       
     }
-
-    res.render(viewData.viewName, viewData);
+    res.status(200).send(`https://${viewData.accountName}.blob.core.windows.net/${viewData.containerName}/${req.params.name}`);
   });
 
 });

@@ -14,12 +14,11 @@ const
     , blobService = azureStorage.createBlobService()
 
     , getStream = require('into-stream')
-    , containerName = 'images'
+    , containerName = 'image'
 ;
 
 const handleError = (err, res) => {
-    res.status(500);
-    res.render('error', { error: err });
+    res.status(500).send(err)
 };
 
 const getBlobName = originalName => {
@@ -42,8 +41,8 @@ router.post('/', uploadStrategy, (req, res) => {
             return;
         }
 
-        res.render('success', { 
-            message: 'File uploaded to Azure Blob storage.' 
+        res.status(200).send({ 
+            message: 'File uploaded to Azure Blob storage.' + blobName 
         });
     });
 });
