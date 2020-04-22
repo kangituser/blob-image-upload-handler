@@ -11,7 +11,7 @@ const
     , config = require('../config')
 ;
 
-router.get('/thumbnail/byname/:name', (req, res, next) => {
+router.get('/thumbnail/byname/:blobName', (req, res, next) => {
 
   blobService.listBlobsSegmented(containerName, null, (err, data) => {
 
@@ -42,7 +42,7 @@ router.get('/thumbnail/byname/:name', (req, res, next) => {
       } 
       
     }
-    res.status(200).send(`https://${viewData.accountName}.blob.core.windows.net/${viewData.containerName}/${req.params.name}`);
+    res.status(200).send(`https://${viewData.accountName}.blob.core.windows.net/${viewData.containerName}/${req.params.blobName}`);
   });
 
 });

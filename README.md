@@ -8,10 +8,10 @@ Start the server:
 npm start
 ```
 
- GET image: [http://localhost:3000/get/thumbnail/byname/NAME](http://localhost:3000/get/thumbnail/byname/NAME) 
+ **GET** blob: [http://localhost:3000/get/thumbnail/byname/:blobName](http://localhost:3000/get/thumbnail/byname/:blobName) 
  NAME is a param.
 
-POST image: [http://localhost:3000/upload/](http://localhost:3000/upload/)
+**POST** blob: [http://localhost:3000/upload/](http://localhost:3000/upload/)
 REQ: FormData object {image: 'image'}
 RES: on success JSON {
     message: "",
@@ -23,6 +23,8 @@ on failure JSON: {
     "field": "",
     "storageErrors": Array
 } 
+
+**DELETE** blob: [http://localhost:3000/delete/:blobName](http://localhost:3000/delete/:blobName)
 
 ## Adding a connection string
 

@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 
 const getRoutes = require('./routes/get');
 const upload = require('./routes/upload');
+const deleteBlob = require('./routes/delete');
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/get', getRoutes);
 app.use('/upload', upload);
+app.use('/delete', deleteBlob);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
