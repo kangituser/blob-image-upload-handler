@@ -27,7 +27,6 @@ const getBlobName = originalName => {
 };
 
 router.post('/', uploadStrategy, (req, res) => {
-
     const
           blobName = getBlobName(req.file.originalname)
         , stream = getStream(req.file.buffer)
@@ -42,7 +41,9 @@ router.post('/', uploadStrategy, (req, res) => {
         }
 
         res.status(200).send({ 
-            message: 'File uploaded to Azure Blob storage.' + blobName 
+            message: 'File uploaded to Azure Blob storage',
+            blobName: blobName,
+            containerName: containerName
         });
     });
 });

@@ -11,7 +11,18 @@ npm start
  GET image: [http://localhost:3000/get/thumbnail/byname/NAME](http://localhost:3000/get/thumbnail/byname/NAME) 
  NAME is a param.
 
-POST image: [http://localhost:3000/upload/](http://localhost:3000/upload/) with an image in FormData file format.
+POST image: [http://localhost:3000/upload/](http://localhost:3000/upload/)
+REQ: FormData object {image: 'image'}
+RES: on success JSON {
+    message: "",
+    blobName: "",
+    containerName: ""
+}
+on failure JSON: {
+    "code": "",
+    "field": "",
+    "storageErrors": Array
+} 
 
 ## Adding a connection string
 
