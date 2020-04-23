@@ -12,17 +12,21 @@ npm start
  NAME is a param.
 
 **POST** blob: [http://localhost:3000/upload/](http://localhost:3000/upload/)
-REQ: FormData object {image: 'image'}
-RES: on success JSON {
+
+REQ: FormData object `{image: 'image'}`
+
+RES: on success JSON 
+```{
     message: "",
     blobName: "",
     containerName: ""
-}
-on failure JSON: {
+}```
+on failure JSON: 
+```{
     "code": "",
     "field": "",
     "storageErrors": Array
-} 
+} ```
 
 **DELETE** blob: [http://localhost:3000/delete/:blobName](http://localhost:3000/delete/:blobName)
 
