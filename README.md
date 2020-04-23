@@ -16,17 +16,21 @@ npm start
 REQ: FormData object `{image: 'image'}`
 
 RES: on success JSON 
-```{
+```
+{
     message: "",
     blobName: "",
     containerName: ""
-}```
+}
+```
 on failure JSON: 
-```{
+```
+{
     "code": "",
     "field": "",
     "storageErrors": Array
-} ```
+} 
+```
 
 **DELETE** blob: [http://localhost:3000/delete/:blobName](http://localhost:3000/delete/:blobName)
 
